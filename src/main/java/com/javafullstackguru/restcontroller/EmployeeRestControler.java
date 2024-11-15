@@ -46,9 +46,9 @@ public class EmployeeRestControler {
     }
 
     @DeleteMapping("/employee/{id}")
-    public ResponseEntity<Employee> deleteEmployee(@PathVariable String id) {
+    public ResponseEntity<Void> deleteEmployee(@PathVariable String id) {
         try {
-            employeeService.getEmployeeById(id);
+            employeeService.deleteEmployee(id);
             return ResponseEntity.noContent().build();
         } catch (EmployeeNotFoundException e) {
             return ResponseEntity.notFound().build();
